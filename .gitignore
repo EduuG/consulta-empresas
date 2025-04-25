@@ -864,3 +864,5 @@ fabric.properties
 .vercel
 
 *.http
+
+.vscode

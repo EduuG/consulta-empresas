@@ -40,7 +40,7 @@ export class AuthService {
   }
 
   obterUsuarioInfo(): any {
-    return this.http.get<any>(`${this.apiUrl}/me`);
+    return this.http.get<any>(`${this.apiUrl}/usuario/me`);
   }
 
   validarEmail(email: string): boolean {

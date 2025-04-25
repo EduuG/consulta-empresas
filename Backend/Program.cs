@@ -53,6 +53,14 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// Cria banco de dados (caso não exista) e aplica migrations automaticamente.
+// OBS: Somente para fins de teste.
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
