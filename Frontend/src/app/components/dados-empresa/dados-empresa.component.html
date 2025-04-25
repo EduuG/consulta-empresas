@@ -1,0 +1,165 @@
+<p-dataview
+  #dv
+  *ngIf="empresaService.empresasCadastradas$ | async as empresas; else loading"
+  [value]="empresas"
+  [paginator]="true"
+  [rows]="5"
+  emptyMessage="Nenuma empresa adicionada"
+  class="flex justify-center items-center p-5"
+>
+  <ng-template #list let-empresas>
+    @for (empresa of empresas; track empresa.cnpj) {
+    <p-accordion [value]="0">
+      <p-accordion-panel value="0">
+        <p-accordion-header>{{ empresa.nome }}</p-accordion-header>
+
+        <p-accordion-content>
+          <div class="flex gap-4 mb-4 flex-wrap sm:flex-nowrap">
+            <div class="flex flex-col w-full sm:w-1/3">
+              <label>CNPJ</label>
+              <input
+                pInputText
+                [value]="empresa.cnpj"
+                readonly
+                class="w-full"
+              />
+            </div>
+
+            <div class="flex flex-col w-full sm:w-1/3">
+              <label>Nome Fantasia</label>
+              <input
+                pInputText
+                [value]="empresa.fantasia"
+                readonly
+                class="w-full"
+              />
+            </div>
+
+            <div class="flex flex-col w-full sm:w-1/3">
+              <label>Situação</label>
+              <input
+                pInputText
+                [value]="empresa.situacao"
+                readonly
+                class="w-full"
+              />
+            </div>
+          </div>
+
+          <div class="flex gap-4 mb-4 flex-wrap sm:flex-nowrap">
+            <div class="flex flex-col w-full sm:w-1/3">
+              <label>Abertura</label>
+              <input
+                pInputText
+                [value]="empresa.abertura"
+                readonly
+                class="w-full"
+              />
+            </div>
+
+            <div class="flex flex-col w-full sm:w-1/3">
+              <label>Atividade Principal</label>
+              <input
+                pInputText
+                [value]="empresa.atividadePrincipal?.[0]?.descricao"
+                readonly
+                class="w-full"
+              />
+            </div>
+
+            <div class="flex flex-col w-full sm:w-1/3">
+              <label>Natureza Jurídica</label>
+              <input
+                pInputText
+                [value]="empresa.naturezaJuridica"
+                readonly
+                class="w-full"
+              />
+            </div>
+          </div>
+
+          <div class="flex gap-4 mb-4 flex-wrap sm:flex-nowrap">
+            <div class="flex flex-col w-full sm:w-1/4">
+              <label>Bairro</label>
+              <input
+                pInputText
+                [value]="empresa.bairro"
+                readonly
+                class="w-full"
+              />
+            </div>
+
+            <div class="flex flex-col w-full sm:w-1/4">
+              <label>CEP</label>
+              <input pInputText [value]="empresa.cep" readonly class="w-full" />
+            </div>
+
+            <div class="flex flex-col w-full sm:w-1/2">
+              <label>Complemento</label>
+              <input
+                pInputText
+                [value]="empresa.complemento"
+                readonly
+                class="w-full"
+              />
+            </div>
+          </div>
+
+          <div class="flex gap-4 mb-4 flex-wrap sm:flex-nowrap">
+            <div class="flex flex-col w-full sm:w-3/4">
+              <label>Logradouro</label>
+              <input
+                pInputText
+                [value]="empresa.logradouro"
+                readonly
+                class="w-full"
+              />
+            </div>
+
+            <div class="flex flex-col w-full sm:w-1/4">
+              <label>Município</label>
+              <input
+                pInputText
+                [value]="empresa.municipio"
+                readonly
+                class="w-full"
+              />
+            </div>
+          </div>
+
+          <div class="flex gap-4 mb-4 flex-wrap sm:flex-nowrap">
+            <div class="flex flex-col w-full sm:w-1/4">
+              <label>Número</label>
+              <input
+                pInputText
+                [value]="empresa.numero"
+                readonly
+                class="w-full"
+              />
+            </div>
+
+            <div class="flex flex-col w-full sm:w-1/2">
+              <label>Tipo</label>
+              <input
+                pInputText
+                [value]="empresa.tipo"
+                readonly
+                class="w-full"
+              />
+            </div>
+
+            <div class="flex flex-col w-full sm:w-1/4">
+              <label>UF</label>
+              <input pInputText [value]="empresa.uf" readonly class="w-full" />
+            </div>
+          </div>
+        </p-accordion-content>
+      </p-accordion-panel>
+    </p-accordion>
+    }
+  </ng-template>
+</p-dataview>
+
+<ng-template #loading>
+  <p>Carregando empresas...</p>
+</ng-template>

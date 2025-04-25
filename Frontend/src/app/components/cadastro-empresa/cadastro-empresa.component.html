@@ -1,0 +1,68 @@
+<div class="flex flex-col justify-between w-screen h-screen p-5">
+  <div class="flex justify-between">
+    <div class="flex items-center gap-2">
+      <div
+        class="flex justify-center items-center w-7 h-7 bg-gray-600 rounded-full"
+      >
+        <i class="pi pi-user" style="font-size: 1rem"></i>
+      </div>
+
+      <p>
+        Olá,
+        <strong>{{ nome }}</strong
+        >!
+      </p>
+    </div>
+
+    <p-button
+      label="Sair"
+      icon="pi pi-sign-out"
+      iconPos="right"
+      (onClick)="logout()"
+    />
+  </div>
+
+  <div class="flex justify-center">
+    <p-card pFocusTrap class="w-[700px]">
+      <ng-template #content>
+        <p-toolbar>
+          <ng-template #end>
+            <p-button
+              icon="pi pi-plus"
+              class="mr-2"
+              label="Nova empresa"
+              (click)="op.toggle($event)"
+            />
+          </ng-template>
+        </p-toolbar>
+
+        <app-dados-empresa />
+      </ng-template>
+    </p-card>
+  </div>
+
+  <div>
+    <p>Feito por: Eduardo Guimarães</p>
+  </div>
+</div>
+
+<p-popover #op>
+  <div class="flex flex-col gap-4 w-[25rem]">
+    <p-inputgroup>
+      <p-floatlabel variant="on">
+        <p-inputmask
+          mask="99.999.999/9999-99"
+          [(ngModel)]="empresaService.cnpj"
+          (keyup.enter)="empresaService.cadastrarEmpresa()"
+        />
+        <label>CNPJ</label>
+      </p-floatlabel>
+      <button
+        pButton
+        label="Adicionar"
+        icon="pi pi-building"
+        (click)="empresaService.cadastrarEmpresa()"
+      ></button>
+    </p-inputgroup>
+  </div>
+</p-popover>

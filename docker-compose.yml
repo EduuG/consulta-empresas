@@ -1,0 +1,23 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    restart: always
+    # Uncomment this if you need to access the db from an external network
+    ports:
+      - "1433:1433"
+    environment:
+      - SA_PASSWORD=SenhaPar@OBancoSqL9871
+      - ACCEPT_EULA=Y
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    networks:
+      - custom_network
+
+volumes:
+  sqlserver_data:
+    driver: local
+
+networks:
+  custom_network:
+    driver: bridge

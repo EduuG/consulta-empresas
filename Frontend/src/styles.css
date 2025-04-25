@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@plugin "tailwindcss-primeui";
+@import "primeicons/primeicons.css";
+
+/* Corrige renderização errônea do InputMask quando aninhado em um InputGroup */
+.p-inputgroup .p-inputtext {
+  width: 100% !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-right: 0 !important;
+}
+
+.p-inputgroup,
+.p-inputgroup .p-floatlabel,
+.p-inputgroup .p-iftalabel {
+  width: unset !important;
+}
