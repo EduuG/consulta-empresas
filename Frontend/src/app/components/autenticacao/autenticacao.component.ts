@@ -6,12 +6,7 @@ import { CadastroEmpresaComponent } from '../cadastro-empresa/cadastro-empresa.c
 
 @Component({
   selector: 'app-autenticacao',
-  imports: [
-    TabsModule,
-    CadastroUsuarioComponent,
-    LoginUsuarioComponent,
-    CadastroEmpresaComponent,
-  ],
+  imports: [TabsModule, CadastroUsuarioComponent, LoginUsuarioComponent],
   templateUrl: './autenticacao.component.html',
   styleUrl: './autenticacao.component.css',
 })
