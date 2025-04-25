@@ -860,7 +860,8 @@ fabric.properties
 .idea/**/azureSettings.xml
 
 # Ignore sensitive configuration files
-**/appsettings*.json
+**/appsettings.json
+**/appsettings.Development.json
 .vercel
 
 *.http
