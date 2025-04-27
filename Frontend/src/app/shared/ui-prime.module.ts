@@ -19,6 +19,7 @@ import { FocusTrapModule } from 'primeng/focustrap';
 import { PopoverModule } from 'primeng/popover';
 import { AccordionModule } from 'primeng/accordion';
 import { FieldsetModule } from 'primeng/fieldset';
+import { TextareaModule } from 'primeng/textarea';
 
 @NgModule({
   exports: [
@@ -40,6 +41,7 @@ import { FieldsetModule } from 'primeng/fieldset';
     PopoverModule,
     AccordionModule,
     FieldsetModule,
+    TextareaModule,
   ],
 })
-export class UiPrimeModule {}
+export class UiPrimeModule { }
