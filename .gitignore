@@ -859,9 +859,6 @@ fabric.properties
 # https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
 .idea/**/azureSettings.xml
 
-# Ignore sensitive configuration files
-**/appsettings.json
-**/appsettings.Development.json
 .vercel
 
 *.http
